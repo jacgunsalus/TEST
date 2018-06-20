@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title> A button </title>
+    </head>
+    <body>
+        <form>
+            <input type="button" id="doSomething" value="Do Something" />
+            <input type="text" id="userInput" />
+            <label id="someText"> Here is some text </label>
+        </form>
+    </body>
+    <footer>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script language="javascript">
+            $(document).ready(function() {
+                $('form').on('keypress', function(e) {
+                    console.log(e.keyCode);
+                    if (e.keyCode === 13) {
+                        return false;
+                    }
+                });
+
+                $('#doSomething').on('click',function() {
+                    doSomething();
+                });
+                    let enteredValue = $('#userInput').val();
+                    let valueAsNumber = parseInt(enteredValue);
+                    if (isNaN(valueAsNumber)){
+                        $('#someText').text('That is not a number!');
+                    } else {
+                        if (valueAsNumber < 500) {
+                            $('#someText').css('background-color', 'yellow');
+                        } else {
+                            $('#someText').css('background-color', 'green');
+                        }
+                        $('#someText').text("You entered the number: " + valueAsNumber);
+                    }
+                    
+                });
+
+                $('#doSomething').on('click',function() {
+                    let enteredValue = $('#userInput').val();
+                    let valueAsNumber = parseInt(enteredValue);
+                    if (isNaN(valueAsNumber)){
+                        $('#someText').text('That is not a number!');
+                    } else {
+                        if (valueAsNumber < 500) {
+                            $('#someText').css('background-color', 'yellow');
+                        } else {
+                            $('#someText').css('background-color', 'green');
+                        }
+                        $('#someText').text("You entered the number: " + valueAsNumber);
+                    }
+            });
+        </script>
+    </footer>
+</html>
